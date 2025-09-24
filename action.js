@@ -1,3 +1,4 @@
+//DOM
 const cajaDisplay = document.querySelector(".display");
 const buttonAC = document.getElementById("buttonAC");
 const buttonDEL = document.getElementById("buttonDEL");
@@ -18,71 +19,90 @@ const button8 = document.getElementById("button8");
 const button9 = document.getElementById("button9");
 const button0 = document.getElementById("button0");
 const buttonCom = document.getElementById("buttonCom");
+const historial = document.querySelector(".historial");
+//Variables
 var num1 = "";
 var num2 = "";
 var resultado = 0;
 var comprobante = false;
 var operando = "";
-
+//Display
 function actualizarDisplay() {
   comprobante === false
     ? (cajaDisplay.textContent = num1 || "0")
     : (cajaDisplay.textContent = num2 || "0");
 }
-
+//Funcion añadir numero
 function addNumero(btn) {
   btn.addEventListener("click", function () {
+    historial.classList.remove("reducir");
+    comprobante === false ? historial.textContent = "" : historial.textContent;
     comprobante === false
       ? (num1 += btn.textContent)
       : (num2 += btn.textContent);
     actualizarDisplay();
   });
 }
-
+//Boton Borrar
 buttonDEL.addEventListener("click", function () {
   comprobante == false
     ? (num1 = num1.slice(0, -1))
     : (num2 = num2.slice(0, -1));
   actualizarDisplay();
 });
+//Boton limpiar
 buttonAC.addEventListener("click", function () {
   num1 = "";
   num2 = "";
+  historial.textContent = "";
   actualizarDisplay();
 });
-
+//Boton sumar
 buttonMas.addEventListener("click", function () {
   comprobante = true;
   operando = "+";
+  historial.textContent = `${num1}${operando}`;
   actualizarDisplay();
 });
+//Boton borrar
 buttonMen.addEventListener("click", function () {
   comprobante = true;
   operando = "-";
+  historial.textContent = `${num1}${operando}`;
   actualizarDisplay();
 });
+//Boton dividir
 buttonDiv.addEventListener("click", function () {
   comprobante = true;
   operando = "/";
+  historial.textContent = num1 + operando;
   actualizarDisplay();
 });
+//Boton multiplicar
 buttonMul.addEventListener("click", function () {
   comprobante = true;
   operando = "*";
   actualizarDisplay();
 });
+//Boton porcentaje
 buttonPor.addEventListener("click", function () {
   comprobante = true;
   operando = "%";
   actualizarDisplay();
 });
-
+//Boton igual
 buttonIgu.addEventListener("click", function () {
   comprobante = false;
   switch (operando) {
     case "+":
       resultado = Number(num1) + Number(num2);
-      cajaDisplay.textContent = resultado;
+      cajaDisplay.textContent = `= ${resultado}`;
+      historial.textContent += `${num2}`;
+      historial.classList.add("reducir");
+      historial.classList.add("pop");
+      historial.addEventListener("animationend", function(){
+        historial.classList.remove("pop");
+      });
       num1 = "";
       num2 = "";
       comprobante = false;
@@ -109,7 +129,7 @@ buttonIgu.addEventListener("click", function () {
       comprobante = false;
       break;
     case "%":
-      resultado = Number(num1) % Number(num2);
+      resultado = (Number(num1) * Number(num2)) / 100;
       cajaDisplay.textContent = resultado;
       num1 = "";
       num2 = "";
@@ -117,7 +137,13 @@ buttonIgu.addEventListener("click", function () {
       break;
   }
 });
-
+//Boton coma/punto
+buttonCom.addEventListener("click", function(){
+  comprobante === false ?
+  num1 += "." : num2 += ".";
+  actualizarDisplay();
+});
+//Array de botones para no declararlos uno a uno
 [
   button0,
   button1,

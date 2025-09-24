@@ -11,8 +11,8 @@ body {
 
 #base {
   display: grid;
-  grid-template-rows: 260px 1fr;
-  width: clamp(500px, 80vw, 500px);
+  grid-template-rows: 200px 60px 1fr;
+  width: clamp(450px, 80vw, 450px);
   height: clamp(550px, 90vh, 800px);
   border: 6px solid black;
   border-radius: 20px;
@@ -27,6 +27,22 @@ body {
   background-color: black;
   color: white;
   font-size: 60px;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+
+.historial{
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  background-color: black;
+  color: white;
+  font-size: 60px;
+  padding-right: 40px;
+  box-sizing: border-box;
 }
 
 .buttons {
@@ -40,8 +56,9 @@ body {
     "uno dos tres mas"
     ". cero punto igual";
   background-color: black;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
+  column-gap:10px; 
 }
 
 .buttons > button {
@@ -54,7 +71,6 @@ body {
   width: 90px;
   height: 80px;
   border-radius: 20px;
-  border-color: var(--naranjaXiaomi);
 }
 
 #buttonAC {
@@ -87,7 +103,8 @@ body {
 }
 #buttonIgu {
   grid-area: igual;
-  color: var(--naranjaXiaomi);
+  color: white;
+  background-color: var(--naranjaXiaomi);
 }
 #button1 {
   grid-area: uno;
@@ -121,4 +138,19 @@ body {
 }
 #buttonCom {
   grid-area: punto;
+}
+
+.reducir {
+  font-size: 35px;
+  color: grey;
+}
+
+.pop {
+  animation: pop .22 ease;
+}
+
+@keyframes pop {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.05);}
+  100% {transform: scale(1);}
 }
