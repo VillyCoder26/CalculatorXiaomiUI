@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles.css" />
-    <title>Calculadora</title>
-  </head>
-  <body>
-    <div id="base">
-      <div class="historial"></div>
-      <div class="display">0</div>
-      <div class="buttons">
-        <button id="buttonAC">AC</button>
-        <button id="buttonDEL">DEL</button>
-        <button id="buttonPor">%</button>
-        <button id="buttonDiv">/</button>
-        <button id="buttonMul">X</button>
-        <button id="buttonMen">-</button>
-        <button id="buttonMas">+</button>
-        <button id="buttonIgu">=</button>
-        <button id="button1">1</button>
-        <button id="button2">2</button>
-        <button id="button3">3</button>
-        <button id="button4">4</button>
-        <button id="button5">5</button>
-        <button id="button6">6</button>
-        <button id="button7">7</button>
-        <button id="button8">8</button>
-        <button id="button9">9</button>
-        <button id="button0">0</button>
-        <button id="buttonCom">.</button>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="preload" href="./fonts/MiSansLatin-Normal.woff2" as="font" type="font/woff2" crossorigin>
+  <title>Calculadora</title>
+</head>
+
+<body>
+  <div id="base">
+    <div class="historial"></div>
+    <div class="display">0</div>
+    <div class="buttons">
+      <button id="buttonAC">AC</button>
+      <button id="buttonDEL"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="none" stroke="#e98509"
+          stroke-width="36" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+          <path
+            d="M576 192C576 156.7 547.3 128 512 128L205.3 128C188.3 128 172 134.7 160 146.7L9.4 297.4C3.4 303.4 0 311.5 0 320C0 328.5 3.4 336.6 9.4 342.6L160 493.3C172 505.3 188.3 512 205.3 512L512 512C547.3 512 576 483.3 576 448L576 192zM284.1 252.1C293.5 242.7 308.7 242.7 318 252.1L351.9 286L385.8 252.1C395.2 242.7 410.4 242.7 419.7 252.1C429 261.5 429.1 276.7 419.7 286L385.8 319.9L419.7 353.8C429.1 363.2 429.1 378.4 419.7 387.7C410.3 397 395.1 397.1 385.8 387.7L351.9 353.8L318 387.7C308.6 397.1 293.4 397.1 284.1 387.7C274.8 378.3 274.7 363.1 284.1 353.8L318 319.9L284.1 286C274.7 276.6 274.7 261.4 284.1 252.1z" />
+        </svg></button>
+      <button id="buttonPor">%</button>
+      <button id="buttonDiv">÷</button>
+      <button id="buttonMul">×</button>
+      <button id="buttonMen">-</button>
+      <button id="buttonMas">+</button>
+      <button id="buttonIgu">=</button>
+      <button id="button1">1</button>
+      <button id="button2">2</button>
+      <button id="button3">3</button>
+      <button id="button4">4</button>
+      <button id="button5">5</button>
+      <button id="button6">6</button>
+      <button id="button7">7</button>
+      <button id="button8">8</button>
+      <button id="button9">9</button>
+      <button id="button0">0</button>
+      <button id="buttonCom">.</button>
     </div>
-    <script src="./action.js" defer></script>
-  </body>
+  </div>
+  <script src="./action.js" defer></script>
+</body>
+
 </html>
